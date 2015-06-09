@@ -15,14 +15,16 @@ public class TestAerospike extends BaseTest {
     Bin bin1 = new Bin("bin1", "value1");
     Bin bin2 = new Bin("bin2", "value2");
     Bin bin3 = new Bin("bin3", "value-bla");
+    Bin bin4 = new Bin("bin4", "value-bla-bla");
+    Bin bin5 = new Bin("bin5", "value-bla-bla-bla");
 
     // Write a record
-    AerospikeClientFactory.getInstance().getClient().put(null, key, bin1, bin2, bin3);
+    AerospikeClientFactory.getInstance().getClient().put(null, key, bin1, bin2, bin3, bin4, bin5);
 
     // Read a record
     Record record = AerospikeClientFactory.getInstance().getClient().get(null, key);
 
-    assertEquals(record.bins.size(), 3);
+    assertEquals(record.bins.size(), 5);
 
     AerospikeClientFactory.getInstance().getClient().close();
   }

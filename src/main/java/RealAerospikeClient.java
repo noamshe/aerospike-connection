@@ -17,7 +17,7 @@ public class RealAerospikeClient implements IAerospikeClient {
 
   @Override
   public void put(WritePolicy policy, Key key, Bin... bins) throws AerospikeException {
-    client.put(policy,key, bins);
+    client.put(policy, key, bins);
   }
 
   @Override
